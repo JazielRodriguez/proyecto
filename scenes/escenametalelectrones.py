@@ -1,10 +1,11 @@
 from manim import LEFT, DOWN, ORIGIN, RIGHT, VGroup, Text, UP
 from utils.colors import colors
 from utils.actions import actions
+from utils.objetos import superficie, crearElectron
 
 
 def metalElectrones(self):
-    metal = self.superficie_metal()
+    metal = superficie()
 
     # Electrones atrapados en la superficie
     posiciones_e = [
@@ -14,7 +15,7 @@ def metalElectrones(self):
         RIGHT * 1.5 + DOWN * 2.3,
         RIGHT * 3 + DOWN * 2.2,
     ]
-    electrones = VGroup(*[self.crear_electron(p) for p in posiciones_e])
+    electrones = VGroup(*[crearElectron(p) for p in posiciones_e])
 
     titulo = Text(
         "Electrones ligados al metal", font_size=28, color=colors["colorWhite"]

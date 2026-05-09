@@ -1,9 +1,9 @@
-from figures import figures
-from colors import colors
+from utils.figures import figures
+from utils.colors import colors
 from manim import DOWN, VGroup, Text, BOLD
 
 
-def superficie(self):
+def superficie():
     """Rectángulo que representa la superficie metálica."""
     metal = figures["rectangle"](
         width=10,
@@ -18,7 +18,7 @@ def superficie(self):
     return VGroup(metal, label)
 
 
-def crearElectron(self, pos):
+def crearElectron(pos):
     e = figures["circle"](
         radius=0.18,
         color=colors["colorYellow"],
@@ -31,7 +31,7 @@ def crearElectron(self, pos):
     return VGroup(e, minus)
 
 
-def crearFoton(self, color=colors["colorBlue"]):
+def crearFoton(color=colors["colorBlue"]):
     foton = figures["circle"](
         radius=0.2, color=color, fill_color=color, fill_opacity=0.9
     )

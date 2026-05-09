@@ -1,6 +1,7 @@
 from manim import Text, LEFT, UP, ORIGIN, DOWN, RIGHT, Arrow, GrowArrow
 from utils.actions import actions
 from utils.colors import colors
+from utils.objetos import crearElectron,crearFoton
 
 
 def luzAltaFrecuencia(self):
@@ -28,13 +29,10 @@ def luzAltaFrecuencia(self):
 
     electrones_libres = []
     for start_x, e_pos in impactos:
-        foton = self.crear_foton(color=colors["colorPurple"])
+        foton = crearFoton(color=colors["colorPurple"])
         foton.move_to(UP * 3 + start_x)
 
-        self.play(
-            foton.animate.move_to(e_pos + UP * 0.5),
-            run_time=0.6
-        )
+        self.play(foton.animate.move_to(e_pos + UP * 0.5), run_time=0.6)
 
         # Flash de impacto
         flash = actions["flash"](
@@ -46,7 +44,7 @@ def luzAltaFrecuencia(self):
         self.play(flash, actions["fadeOut"](foton))
 
         # Electrón sale disparado
-        e_libre = self.crear_electron(e_pos)
+        e_libre = crearElectron(e_pos)
         self.play(actions["fadeOut"](e_libre, scale=0.5))
         flecha = Arrow(
             e_pos, e_pos + UP * 1.8 + start_x * 0.1, color=colors["colorYellow"], buff=0

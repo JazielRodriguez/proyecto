@@ -8,7 +8,7 @@ def titulo(self):
         "Efecto Fotoeléctrico", font_size=52, color=colors["colorYellow"], weight=BOLD
     )
     subtitulo = Text(
-        "Albert Einstein · Nobel de Física 1921",
+        "Albert Einstein (Es un puto idiota)",
         font_size=26,
         color=colors["colorGrayB"],
     )

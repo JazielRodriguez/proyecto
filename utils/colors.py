@@ -10,6 +10,7 @@ from manim import (
     ORANGE,
     GREEN_B,
     PURPLE,
+    GREEN,
 )
 
 colors = {
@@ -22,6 +23,7 @@ colors = {
     "colorRedB": RED_B,
     "colorRed": RED,
     "colorOrange": ORANGE,
-    "colorGreen": GREEN_B,
+    "colorGreenB": GREEN_B,
     "colorPurple": PURPLE,
+    "colorGreen": GREEN,
 }

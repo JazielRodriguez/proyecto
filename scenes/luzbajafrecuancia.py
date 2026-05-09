@@ -1,6 +1,7 @@
 from manim import Text, UP, LEFT, DOWN, BOLD
 from utils.actions import actions
 from utils.colors import colors
+from utils.objetos import crearFoton
 
 
 def luzBajaFrecuencia(self):
@@ -24,7 +25,7 @@ def luzBajaFrecuencia(self):
 
     # Fotones de color rojo (baja frecuencia) cayendo
     for _ in range(3):
-        foton = self.crear_foton(color=colors["colorRed"])
+        foton = crearFoton(color=colors["colorRed"])
         foton.move_to(UP * 3 + LEFT * 2)
         self.play(
             foton.animate.move_to(DOWN * 1.8 + LEFT * 2),

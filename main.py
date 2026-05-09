@@ -12,23 +12,22 @@ from scenes.final import final
 class EfectoFotoelectrico(Scene):
     def construct(self):
         self.camara_config()
-        self.escena_titulo()
-        self.escena_metal_y_electrones()
-        self.escena_luz_baja_frecuencia()
-        self.escena_luz_alta_frecuencia()
-        self.escena_ecuacion()
-        self.escena_grafica()
+        self.escenas()
 
     def camara_config(self):
         self.camera.background_color = "#0f0f1a"
 
-    superficie()
-    crearElectron()
-    crearFoton()
-    titulo()
-    metalElectrones()
-    luzBajaFrecuencia()
-    luzAltaFrecuencia()
-    ecuacion()
-    grafica()
-    final()
+    def objetos():
+        superficie()
+        crearElectron()
+        crearFoton()
+
+    def escenas(self):
+
+        titulo(self)
+        metalElectrones(self)
+        luzBajaFrecuencia(self)
+        luzAltaFrecuencia(self)
+        ecuacion(self)
+        grafica(self)
+        final(self)
