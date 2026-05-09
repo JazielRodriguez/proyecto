@@ -1,3 +1,3 @@
-from manim import Rectangle, Circle
+from manim import Rectangle, Circle, Line
 
-figures = {"rectangle": Rectangle, "circle": Circle}
+figures = {"rectangle": Rectangle, "circle": Circle, "line": Line}

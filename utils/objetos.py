@@ -1,6 +1,6 @@
 from utils.figures import figures
 from utils.colors import colors
-from manim import DOWN, VGroup, Text, BOLD
+from manim import DOWN, VGroup, Text, BOLD, UP, LEFT, RIGHT
 
 
 def superficie():
@@ -31,10 +31,77 @@ def crearElectron(pos):
     return VGroup(e, minus)
 
 
-def crearFoton(color=colors["colorBlue"]):
+def crearFoton(positon):
     foton = figures["circle"](
-        radius=0.2, color=color, fill_color=color, fill_opacity=0.9
+        radius=0.2,
+        color=colors["colorWhite"],
+        fill_color=colors["colorWhite"],
+        fill_opacity=0.9,
     )
-    gamma = Text("γ", font_size=18, color=colors["colorWhite"], weight=BOLD)
+    foton.move_to(positon)
+    gamma = Text("γ", font_size=18, color=colors["colorBlack"], weight=BOLD)
     gamma.move_to(foton.get_center())
     return VGroup(foton, gamma)
+
+
+def crearFotodiodo():
+    receptorDeLuz = figures["rectangle"](
+        width=2.5,
+        height=1,
+        color=colors["colorGray"],
+        stroke_width=16
+    )
+    receptorDeLuz.set_z_index(5)
+    cathode = figures["line"](
+        start=RIGHT * 0.75 + UP * 1.8,
+        end=RIGHT * 0.75 + DOWN * 0.50,
+        color=colors["colorRed"],
+        stroke_width=8
+    )
+    cathode.set_z_index(1)
+    supportCathode = figures["line"](
+        start=RIGHT * 0.75 + DOWN * 0.5, end=RIGHT * 1.5 + DOWN * 0.5
+    )
+    supportCathodeConnector = figures["line"](
+        start=RIGHT * 1.5 + DOWN * 0.5, end=RIGHT * 1.5 + DOWN * 2
+    )
+    anode = figures["line"](
+        start=LEFT * 0.75 + UP * 1.8,
+        end=LEFT * 0.75 + DOWN * 1,
+        color=colors["colorBlue"],
+        stroke_width=8
+    )
+    anode.set_z_index(1)
+    supportAnode = figures["line"](
+        start=LEFT * 0.75 + DOWN * 1, end=LEFT * 1.5 + DOWN * 1
+    )
+    supportAnodeConnector = figures["line"](
+        start=LEFT * 1.5 + DOWN * 1, end=LEFT * 1.5 + DOWN * 2
+    )
+    connectorAnode = figures["line"](
+        start=LEFT * 1.5 + DOWN * 2, end=DOWN * 2 + LEFT * 0.30
+    )
+    connectorCathode = figures["line"](
+        start=RIGHT * 1.5 + DOWN * 2, end=DOWN * 2 + RIGHT * 0.30
+    )
+    padAnode = figures["line"](
+        start=LEFT * 0.30 + DOWN * 2.25, end=LEFT * 0.30 + DOWN * 1.75
+    )
+    padCathode = figures["line"](
+        start=RIGHT * 0.30 + DOWN * 2.5, end=RIGHT * 0.30 + DOWN * 1.5
+    )
+
+    receptorDeLuz.move_to(UP * 2.3)
+    return VGroup(
+        padAnode,
+        padCathode,
+        receptorDeLuz,
+        cathode,
+        anode,
+        supportCathode,
+        connectorCathode,
+        supportAnode,
+        connectorAnode,
+        supportCathodeConnector,
+        supportAnodeConnector,
+    )
