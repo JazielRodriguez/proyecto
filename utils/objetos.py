@@ -18,17 +18,17 @@ def superficie():
     return VGroup(metal, label)
 
 
-def crearElectron(pos):
-    e = figures["circle"](
-        radius=0.18,
+def crearElectron(position,radius):
+    electron = figures["circle"](
+        radius=radius,
         color=colors["colorYellow"],
         fill_color=colors["colorYellow"],
         fill_opacity=1,
     )
-    e.move_to(pos)
-    minus = Text("e⁻", font_size=14, color=colors["colorBlack"], weight=BOLD)
-    minus.move_to(pos)
-    return VGroup(e, minus)
+    electron.move_to(position)
+    minus = Text("⁻", font_size=18, color=colors["colorBlack"], weight=BOLD)
+    minus.move_to(electron.get_center())
+    return VGroup(electron, minus)
 
 
 def crearFoton(positon):
@@ -162,3 +162,83 @@ def crearLed():
         supportCathodeConnector,
         supportAnodeConnector,
     )
+
+
+def crearRegiones():
+    centralRegion = figures["square"](
+        side_length=2,
+    )
+    nRegion = figures["square"](
+        side_length=2,
+    )
+    pRegion = figures["square"](
+        side_length=2,
+    )
+    connectorPRegion = figures["line"](
+        start=LEFT * 3 + UP * 2, end=LEFT * 4 + UP * 2, color=colors["colorBlue"]
+    )
+    connectorNRegion = figures["line"](
+        start=RIGHT * 3 + UP * 2, end=RIGHT * 4 + UP * 2, color=colors["colorRed"]
+    )
+    connectorLeft = figures["line"](
+        start=LEFT * 4 + UP * 2, end=LEFT * 4 + DOWN * 2, color=colors["colorBlue"]
+    )
+    connectorRight = figures["line"](
+        start=RIGHT * 4 + UP * 2, end=RIGHT * 4 + DOWN * 2, color=colors["colorRed"]
+    )
+    connectorNegative = figures["line"](
+        start=LEFT * 4 + DOWN * 2, end=LEFT * 0.5 + DOWN * 2, color=colors["colorBlue"]
+    )
+    connectorPositive = figures["line"](
+        start=RIGHT * 4 + DOWN * 2, end=RIGHT * 0.5 + DOWN * 2, color=colors["colorRed"]
+    )
+    padNegative = figures["line"](
+        start=LEFT * 0.5 + DOWN * 2.5,
+        end=LEFT * 0.5 + DOWN * 1.5,
+        color=colors["colorBlue"],
+    )
+    padPositive = figures["line"](
+        start=RIGHT * 0.5 + DOWN * 3,
+        end=RIGHT * 0.5 + DOWN * 1,
+        color=colors["colorRed"],
+    )
+    centralRegion.move_to(UP * 2)
+    nRegion.move_to(UP * 2 + RIGHT * 2)
+    pRegion.move_to(UP * 2 + LEFT * 2)
+    return VGroup(
+        centralRegion,
+        nRegion,
+        pRegion,
+        connectorPRegion,
+        connectorNRegion,
+        connectorLeft,
+        connectorRight,
+        connectorNegative,
+        connectorPositive,
+        padNegative,
+        padPositive,
+    )
+
+
+def crearProton(position,radius):
+    proton = figures["circle"](
+        radius=radius,
+        color=colors["colorBlue"],
+        fill_color=colors["colorBlue"],
+        fill_opacity=0.9,
+    )
+    proton.move_to(position)
+    carga = Text("+", font_size=18, color=colors["colorWhite"], weight=BOLD)
+    carga.move_to(proton.get_center())
+    return VGroup(proton, carga)
+
+
+def helperParaRegions(position,radius):
+    helper = figures["circle"](
+        radius=radius,
+        color=colors["colorGreen"],
+        fill_color=colors["colorGreen"],
+        fill_opacity=1,
+    )
+    helper.move_to(position)
+    return VGroup(helper)
