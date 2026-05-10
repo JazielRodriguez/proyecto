@@ -29,7 +29,7 @@ def luzAltaFrecuencia(self):
 
     electrones_libres = []
     for start_x, e_pos in impactos:
-        foton = crearFoton(color=colors["colorPurple"])
+        foton = crearFoton(UP*4)
         foton.move_to(UP * 3 + start_x)
 
         self.play(foton.animate.move_to(e_pos + UP * 0.5), run_time=0.6)

@@ -28,7 +28,7 @@ class EfectoFotoelectrico(Scene):
         ecuacion(self)
         grafica(self)
         final(self)
-
-    def testEscenas(self):
         escenaFotodiodo(self)
         escenaComparacionLed(self)
+
+    # def testEscenas(self):

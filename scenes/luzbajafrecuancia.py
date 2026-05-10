@@ -5,6 +5,7 @@ from utils.objetos import crearFoton
 
 
 def luzBajaFrecuencia(self):
+
     self.play(
         actions["transform"](
             self.titulo_base,
@@ -23,9 +24,8 @@ def luzBajaFrecuencia(self):
     freq_label.to_edge(LEFT, buff=0.5).shift(UP * 0.8)
     self.play(actions["write"](freq_label))
 
-    # Fotones de color rojo (baja frecuencia) cayendo
     for _ in range(3):
-        foton = crearFoton(color=colors["colorRed"])
+        foton = crearFoton(UP*4)
         foton.move_to(UP * 3 + LEFT * 2)
         self.play(
             foton.animate.move_to(DOWN * 1.8 + LEFT * 2),
