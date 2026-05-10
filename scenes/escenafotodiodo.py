@@ -12,11 +12,13 @@ def escenaFotodiodo(self):
         weight=BOLD,
     )
     fotodiodo = crearFotodiodo()
-    positionElectron = UP * 4.5
+    positionEntradaFoton = UP * 4.5
 
-    fotonUno = VGroup(crearFoton(positionElectron))
-    fotonDos = VGroup(crearFoton(positionElectron))
-    fotonTres = VGroup(crearFoton(positionElectron))
+
+    fotonEntradaUno = VGroup(crearFoton(positionEntradaFoton))
+    fotonEntradaDos = VGroup(crearFoton(positionEntradaFoton))
+    fotonEntradaTres = VGroup(crearFoton(positionEntradaFoton))
+
     entradaDeLuz = Text(
         "Entrada de luz", font_size=32, color=colors["colorYellow"], weight=BOLD
     )
@@ -25,20 +27,25 @@ def escenaFotodiodo(self):
     cathode = Text("Catodo", font_size=32, color=colors["colorYellow"], weight=BOLD)
     anode.shift(LEFT * 1.75 + UP * 0.5)
     cathode.shift(RIGHT * 1.75 + UP * 0.5)
-    corrienteNegativa = Text("-", font_size=24, color=colors["colorBlue"],weight=BOLD)
-    corrientePositiva = Text("+", font_size=24, color=colors["colorRed"],weight=BOLD)
+    corrienteNegativa = Text("-", font_size=24, color=colors["colorBlue"], weight=BOLD)
+    corrientePositiva = Text("+", font_size=24, color=colors["colorRed"], weight=BOLD)
     corrienteNegativa.shift(DOWN * 1.75 + LEFT * 0.50)
     corrientePositiva.shift(DOWN * 1.75 + RIGHT * 0.50)
 
     self.play(actions["write"](titulo), run_time=1.5)
     self.wait(1.5)
     self.play(actions["fadeOut"](titulo))
-    self.fotodiodo=fotodiodo
+    self.fotodiodo = fotodiodo
+    self.corrientePositiva = corrientePositiva
+    self.corrienteNegativa = corrienteNegativa
+    self.entradaDeLuz = entradaDeLuz
+    self.anode = anode
+    self.cathode = cathode
     self.play(actions["fadeIn"](self.fotodiodo))
-    self.add(fotonUno)
-    self.add(fotonDos)
-    self.add(fotonTres)
-    self.play(fotonUno.animate.move_to(DOWN * -2.25), actions["write"](entradaDeLuz))
+    self.add(fotonEntradaUno)
+    self.add(fotonEntradaDos)
+    self.add(fotonEntradaTres)
+    self.play(fotonEntradaUno.animate.move_to(DOWN * -2.25), actions["write"](entradaDeLuz))
     self.play(
         actions["write"](anode),
         actions["write"](cathode),
@@ -47,9 +54,10 @@ def escenaFotodiodo(self):
     )
     # self.play(actions["write"](entradaDeLuz), run_time=0.75)
     self.wait(0.5)
-    self.play(actions["fadeOut"](fotonUno))
-    self.play(fotonDos.animate.move_to(DOWN * -2.25))
+    self.play(actions["fadeOut"](fotonEntradaUno))
+    self.play(fotonEntradaDos.animate.move_to(DOWN * -2.25))
     self.wait(0.5)
-    self.play(actions["fadeOut"](fotonDos))
-    self.play(fotonTres.animate.move_to(DOWN * -2.25))
+    self.play(actions["fadeOut"](fotonEntradaDos))
+    self.play(fotonEntradaTres.animate.move_to(DOWN * -2.25))
     self.wait(1.5)
+    self.play(actions["fadeOut"](fotonEntradaTres))
