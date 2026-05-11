@@ -71,6 +71,7 @@ llave = Brace(centralRegion, direction=DOWN)
 
 
 def escenaRegiones(self):
+    self.regiones = regiones
 
     self.play(
         actions["fadeIn"](regiones),
@@ -185,3 +186,5 @@ def escenaRegiones(self):
     self.play(actions["fadeIn"](corrienteOcho, shift=UP * 0.5))
     self.play(actions["fadeIn"](corrienteNueve, shift=UP * 0.5))
     self.play(actions["fadeIn"](corrienteDiez, shift=LEFT * 0.5))
+    self.wait(2)
+    self.play(actions["fadeOut"](*self.mobjects))
