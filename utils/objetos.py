@@ -18,7 +18,7 @@ def superficie():
     return VGroup(metal, label)
 
 
-def crearElectron(position,radius):
+def crearElectron(position, radius):
     electron = figures["circle"](
         radius=radius,
         color=colors["colorYellow"],
@@ -175,32 +175,30 @@ def crearRegiones():
         side_length=2,
     )
     connectorPRegion = figures["line"](
-        start=LEFT * 3 + UP * 2, end=LEFT * 4 + UP * 2, color=colors["colorBlue"]
+        start=LEFT * 3 + UP * 2, end=LEFT * 4 + UP * 2, 
     )
     connectorNRegion = figures["line"](
-        start=RIGHT * 3 + UP * 2, end=RIGHT * 4 + UP * 2, color=colors["colorRed"]
+        start=RIGHT * 3 + UP * 2, end=RIGHT * 4 + UP * 2, 
     )
     connectorLeft = figures["line"](
-        start=LEFT * 4 + UP * 2, end=LEFT * 4 + DOWN * 2, color=colors["colorBlue"]
+        start=LEFT * 4 + UP * 2, end=LEFT * 4 + DOWN * 2, 
     )
     connectorRight = figures["line"](
-        start=RIGHT * 4 + UP * 2, end=RIGHT * 4 + DOWN * 2, color=colors["colorRed"]
+        start=RIGHT * 4 + UP * 2, end=RIGHT * 4 + DOWN * 2, 
     )
     connectorNegative = figures["line"](
-        start=LEFT * 4 + DOWN * 2, end=LEFT * 0.5 + DOWN * 2, color=colors["colorBlue"]
+        start=LEFT * 4 + DOWN * 2, end=LEFT * 0.5 + DOWN * 2, 
     )
     connectorPositive = figures["line"](
-        start=RIGHT * 4 + DOWN * 2, end=RIGHT * 0.5 + DOWN * 2, color=colors["colorRed"]
+        start=RIGHT * 4 + DOWN * 2, end=RIGHT * 0.5 + DOWN * 2, 
     )
     padNegative = figures["line"](
         start=LEFT * 0.5 + DOWN * 2.5,
         end=LEFT * 0.5 + DOWN * 1.5,
-        color=colors["colorBlue"],
     )
     padPositive = figures["line"](
         start=RIGHT * 0.5 + DOWN * 3,
-        end=RIGHT * 0.5 + DOWN * 1,
-        color=colors["colorRed"],
+        end=RIGHT * 0.5 + DOWN * 1
     )
     centralRegion.move_to(UP * 2)
     nRegion.move_to(UP * 2 + RIGHT * 2)
@@ -220,7 +218,7 @@ def crearRegiones():
     )
 
 
-def crearProton(position,radius):
+def crearProton(position, radius):
     proton = figures["circle"](
         radius=radius,
         color=colors["colorBlue"],
@@ -233,7 +231,7 @@ def crearProton(position,radius):
     return VGroup(proton, carga)
 
 
-def helperParaRegions(position,radius):
+def helperParaRegions(position, radius):
     helper = figures["circle"](
         radius=radius,
         color=colors["colorGreen"],

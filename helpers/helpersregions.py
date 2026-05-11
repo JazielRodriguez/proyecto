@@ -1,4 +1,4 @@
-from manim import LEFT, UP, VGroup, RIGHT
+from manim import LEFT, UP, VGroup, RIGHT, Arrow, DOWN
 from utils.figures import figures
 from utils.objetos import helperParaRegions
 from utils.colors import colors
@@ -70,4 +70,74 @@ helperLineaDiezDer = figures["line"](
     start=RIGHT * 2.10 + UP * 1.2,
     end=UP * 1.2 + RIGHT * 1.80,
     color=colors["colorPurple"],
+)
+corrienteUno = Arrow(
+    start=LEFT * 3.2 + UP * 2,
+    end=LEFT * 3.8 + UP * 2,
+    stroke_width=128,
+    buff=0,
+    color=colors["colorOrange"],
+)
+corrienteDos = Arrow(
+    start=LEFT * 4 + UP * 1.50,
+    end=LEFT * 4 + UP * 0.25,
+    stroke_width=128,
+    buff=0,
+    color=colors["colorOrange"],
+)
+corrienteTres = Arrow(
+    start=LEFT * 4 + DOWN * 0.25,
+    end=LEFT * 4 + DOWN * 1.50,
+    stroke_width=128,
+    buff=0,
+    color=colors["colorOrange"],
+)
+corrienteCuatro = Arrow(
+    start=LEFT * 3.75 + DOWN * 2,
+    end=LEFT * 2.5 + DOWN * 2,
+    stroke_width=128,
+    buff=0,
+    color=colors["colorOrange"],
+)
+corrienteCinco = Arrow(
+    start=LEFT * 2 + DOWN * 2,
+    end=LEFT * 0.75 + DOWN * 2,
+    stroke_width=128,
+    buff=0,
+    color=colors["colorOrange"],
+)
+corrienteSeis = Arrow(
+    start=RIGHT * 0.75 + DOWN * 2,
+    end=RIGHT * 2 + DOWN * 2,
+    stroke_width=128,
+    buff=0,
+    color=colors["colorOrange"],
+)
+corrienteSiete = Arrow(
+    start=RIGHT * 2.5 + DOWN * 2,
+    end=RIGHT * 3.75 + DOWN * 2,
+    stroke_width=128,
+    buff=0,
+    color=colors["colorOrange"],
+)
+corrienteOcho = Arrow(
+    start=RIGHT * 4 + DOWN * 1.5,
+    end=RIGHT * 4 + DOWN * 0.25,
+    stroke_width=128,
+    buff=0,
+    color=colors["colorOrange"],
+)
+corrienteNueve = Arrow(
+    start=RIGHT * 4 + UP * 0.25,
+    end=RIGHT * 4 + UP * 1.50,
+    stroke_width=128,
+    buff=0,
+    color=colors["colorOrange"],
+)
+corrienteDiez = Arrow(
+    start=RIGHT * 3.8 + UP * 2,
+    end=RIGHT * 3.2 + UP * 2,
+    stroke_width=128,
+    buff=0,
+    color=colors["colorOrange"],
 )

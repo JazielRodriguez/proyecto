@@ -14,7 +14,6 @@ def escenaFotodiodo(self):
     fotodiodo = crearFotodiodo()
     positionEntradaFoton = UP * 4.5
 
-
     fotonEntradaUno = VGroup(crearFoton(positionEntradaFoton))
     fotonEntradaDos = VGroup(crearFoton(positionEntradaFoton))
     fotonEntradaTres = VGroup(crearFoton(positionEntradaFoton))
@@ -31,7 +30,8 @@ def escenaFotodiodo(self):
     corrientePositiva = Text("+", font_size=24, color=colors["colorRed"], weight=BOLD)
     corrienteNegativa.shift(DOWN * 1.75 + LEFT * 0.50)
     corrientePositiva.shift(DOWN * 1.75 + RIGHT * 0.50)
-
+    self.play(actions["fadeOut"](*self.mobjects))
+    self.wait(0.5)
     self.play(actions["write"](titulo), run_time=1.5)
     self.wait(1.5)
     self.play(actions["fadeOut"](titulo))
@@ -45,7 +45,9 @@ def escenaFotodiodo(self):
     self.add(fotonEntradaUno)
     self.add(fotonEntradaDos)
     self.add(fotonEntradaTres)
-    self.play(fotonEntradaUno.animate.move_to(DOWN * -2.25), actions["write"](entradaDeLuz))
+    self.play(
+        fotonEntradaUno.animate.move_to(DOWN * -2.25), actions["write"](entradaDeLuz)
+    )
     self.play(
         actions["write"](anode),
         actions["write"](cathode),

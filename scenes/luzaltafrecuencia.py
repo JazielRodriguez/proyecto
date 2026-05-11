@@ -44,7 +44,7 @@ def luzAltaFrecuencia(self):
         self.play(flash, actions["fadeOut"](foton))
 
         # Electrón sale disparado
-        e_libre = crearElectron(e_pos)
+        e_libre = crearElectron(e_pos,0.2)
         self.play(actions["fadeOut"](e_libre, scale=0.5))
         flecha = Arrow(
             e_pos, e_pos + UP * 1.8 + start_x * 0.1, color=colors["colorYellow"], buff=0

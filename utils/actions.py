@@ -8,6 +8,7 @@ from manim import (
     Create,
     Flash,
     GrowFromEdge,
+    GrowArrow,
 )
 
 actions = {
@@ -20,4 +21,5 @@ actions = {
     "flash": Flash,
     "create": Create,
     "growFromEdge": GrowFromEdge,
+    "growArrow": GrowArrow
 }

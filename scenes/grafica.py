@@ -108,4 +108,4 @@ def grafica(self):
     self.play(
         actions["fadeIn"](punto), actions["create"](linea_v), actions["write"](ek_ann)
     )
-    self.wait(2)
+    self.wait(2.5)

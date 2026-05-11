@@ -15,7 +15,7 @@ def metalElectrones(self):
         RIGHT * 1.5 + DOWN * 2.3,
         RIGHT * 3 + DOWN * 2.2,
     ]
-    electrones = VGroup(*[crearElectron(p) for p in posiciones_e])
+    electrones = VGroup(*[crearElectron(p,0.2) for p in posiciones_e])
 
     titulo = Text(
         "Electrones ligados al metal", font_size=28, color=colors["colorWhite"]

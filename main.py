@@ -22,15 +22,15 @@ class EfectoFotoelectrico(Scene):
 
 
     # def escenas(self):
-        # titulo(self)
-        # metalElectrones(self)
-        # luzBajaFrecuencia(self)
-        # luzAltaFrecuencia(self)
-        # ecuacion(self)
-        # grafica(self)
-        # escenaFotodiodo(self)
-        # escenaComparacionLed(self)
-        # final(self)
+    #     titulo(self)
+    #     metalElectrones(self)
+    #     luzBajaFrecuencia(self)
+    #     luzAltaFrecuencia(self)
+    #     ecuacion(self)
+    #     grafica(self)
+    #     escenaFotodiodo(self)
+    #     escenaComparacionLed(self)
+    #     final(self)
 
     def testEscenas(self):
         escenaRegiones(self)
