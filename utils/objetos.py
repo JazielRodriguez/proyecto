@@ -13,9 +13,7 @@ def superficie():
         fill_opacity=1,
     )
     metal.move_to(DOWN * 2.5)
-    label = Text("Superficie metálica", font_size=22, color=colors["colorGrayB"])
-    label.move_to(metal.get_center())
-    return VGroup(metal, label)
+    return VGroup(metal)
 
 
 def crearElectron(position, radius):

@@ -18,7 +18,7 @@ class EfectoFotoelectrico(Scene):
     def construct(self):
         self.camara_config()
         self.escenas()
-        self.testEscenas()
+        # self.testEscenas()
 
     def camara_config(self):
         self.camera.background_color = "#0f0f1a"
@@ -28,14 +28,14 @@ class EfectoFotoelectrico(Scene):
         metalElectrones(self)
         luzBajaFrecuencia(self)
         luzAltaFrecuencia(self)
-        ecuacion(self)
-        grafica(self)
-        escenaFotodiodo(self)
-        escenaComparacionLed(self)
-        final(self)
+        # ecuacion(self)
+        # grafica(self)
+        # escenaFotodiodo(self)
+        # escenaComparacionLed(self)
+        # final(self)
 
-    def testEscenas(self):
-        escenaRegiones(self)
-        escenaCorrienteOscura(self)
-        escenaFotoCorriente(self)
-        escenaFotoCorrienteDos(self)
+    # def testEscenas(self):
+    #     escenaRegiones(self)
+    #     escenaCorrienteOscura(self)
+    #     escenaFotoCorriente(self)
+    #     escenaFotoCorrienteDos(self)

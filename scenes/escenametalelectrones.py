@@ -16,13 +16,13 @@ def metalElectrones(self):
         RIGHT * 3 + DOWN * 2.2,
     ]
     electrones = VGroup(*[crearElectron(p,0.2) for p in posiciones_e])
-
+    electrones_impares = VGroup(*electrones[::2])  # índices 0, 2, 4
     titulo = Text(
         "Electrones ligados al metal", font_size=28, color=colors["colorWhite"]
     )
     titulo.to_edge(UP, buff=0.4)
 
-    self.play(actions["fadeIn"](metal), actions["write"](titulo))
+    self.play(actions["fadeIn"](metal),)
     self.play(
         actions["laggedStart"](
             *[actions["growFromCenter"](e) for e in electrones], lag_ratio=0.2
@@ -34,3 +34,4 @@ def metalElectrones(self):
     self.metal = metal
     self.electrones_base = electrones
     self.titulo_base = titulo
+    self.electrones_impares = electrones_impares

@@ -5,28 +5,31 @@ from utils.objetos import crearFoton
 
 
 def luzBajaFrecuencia(self):
-
-    self.play(
-        actions["transform"](
-            self.titulo_base,
-            Text(
-                "Luz de baja frecuencia → sin efecto",
-                font_size=28,
-                color=colors["colorRedB"],
-            ).to_edge(UP, buff=0.4),
-        )
+    self.electrones_impares = self.electrones_impares
+    textoBajaFrecuencia = Text(
+        "Luz incidente de baja frecuencia",
+        font_size=28,
+        color=colors["colorRedB"],
     )
-
-    # Etiqueta frecuencia
+    textoBajaFrecuencia.to_edge(UP, buff=0.4)
     freq_label = Text(
-        "f  <  f₀   (frecuencia umbral)", font_size=24, color=colors["colorRedB"]
+        "f  <  f₀   (frecuencia menor a la frecuencia umbral)",
+        font_size=24,
+        color=colors["colorRedB"],
     )
-    freq_label.to_edge(LEFT, buff=0.5).shift(UP * 0.8)
-    self.play(actions["write"](freq_label))
-
+    freq_label.move_to(UP * 3)
+    self.wait(0.25)
+    self.play(
+        actions["write"](textoBajaFrecuencia),
+        actions["write"](freq_label),
+        run_time=1.5,
+    )
+    self.wait(0.5)
+    self.play(actions["fadeOut"](textoBajaFrecuencia, freq_label))
+    self.wait(0.5)
     for _ in range(3):
-        foton = crearFoton(UP*4)
-        foton.move_to(UP * 3 + LEFT * 2)
+        foton = crearFoton(UP * 4)
+        foton.move_to(UP * 4.5 + LEFT * 2)
         self.play(
             foton.animate.move_to(DOWN * 1.8 + LEFT * 2),
             run_time=0.7,
@@ -40,11 +43,12 @@ def luzBajaFrecuencia(self):
         self.play(actions["fadeOut"](rebote))
 
     nota = Text(
-        "El electrón NO absorbe suficiente energía",
-        font_size=22,
-        color=colors["colorOrange"],
+        "El electrón NO absorbe suficiente energía para salir de la superficie metalica",
+        font_size=24,
+        weight=BOLD,
+        color=colors["colorWhite"],
     )
+    self.nota = nota
     nota.next_to(freq_label, DOWN, buff=0.3)
     self.play(actions["write"](nota))
     self.wait(1.2)
-    self.play(actions["fadeOut"](freq_label), actions["fadeOut"](nota))
