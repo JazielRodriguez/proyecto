@@ -100,3 +100,4 @@ def escenaFotoCorrienteDos(self):
     )
     self.wait(0.5)
     self.play(actions["fadeIn"](hazDeLuzIzq, hazDeLuzDer))
+    self.wait(5)

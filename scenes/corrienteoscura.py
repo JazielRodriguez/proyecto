@@ -174,4 +174,4 @@ def escenaCorrienteOscura(self):
     )
 
     self.play(FadeIn(todo))
-    self.wait(1)
+    self.wait(5)

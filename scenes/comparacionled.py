@@ -49,6 +49,10 @@ def escenaComparacionLed(self):
         actions["write"](fotodiodoText),
         actions["write"](ledText),
     )
+    self.wait(0.5)
+    self.play(actions["fadeOut"](
+        fotodiodoText,ledText
+    ))
     self.play(actions["fadeIn"](fotonSalidaUno))
     self.play(
         fotonEntradaUno.animate.move_to(positionFinalEntradaFoton),
@@ -76,3 +80,6 @@ def escenaComparacionLed(self):
     )
     self.wait(0.5)
     self.play(actions["fadeOut"](fotonEntradaTres), actions["fadeOut"](fotonSalidaTres))
+    self.play(actions["fadeOut"](*self.mobjects))
+    self.wait(1)
+

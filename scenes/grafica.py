@@ -82,7 +82,7 @@ def grafica(self):
     leyenda_cero.move_to(axes.c2p(1.5, 0.6))
 
     leyenda_lineal = Text("Eₖ = hf − φ", font_size=20, color=colors["colorGreen"])
-    leyenda_lineal.move_to(axes.c2p(7.5, 3.5))
+    leyenda_lineal.move_to(axes.c2p(8.5, 3.5))
 
     self.play(actions["create"](linea_cero), actions["write"](leyenda_cero))
     self.play(
@@ -108,4 +108,5 @@ def grafica(self):
     self.play(
         actions["fadeIn"](punto), actions["create"](linea_v), actions["write"](ek_ann)
     )
-    self.wait(2.5)
+    self.wait(7.5)
+    self.play(actions["fadeOut"](*self.mobjects))

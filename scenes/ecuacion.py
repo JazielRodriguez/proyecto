@@ -4,11 +4,6 @@ from utils.colors import colors
 
 
 def ecuacion(self):
-    self.play(
-        actions["fadeOut"](self.metal),
-        actions["fadeOut"](self.electrones_base),
-        actions["fadeOut"](self.titulo_base),
-    )
 
     titulo_ec = Text(
         "Ecuación de Einstein", font_size=36, color=colors["colorYellow"], weight=BOLD
@@ -52,7 +47,7 @@ def ecuacion(self):
         actions["laggedStart"](*[actions["write"](f) for f in filas], lag_ratio=0.3),
         run_time=2,
     )
-    self.wait(2)
+    self.wait(3)
     self.play(
         actions["fadeOut"](titulo_ec), actions["fadeOut"](eq), actions["fadeOut"](filas)
     )

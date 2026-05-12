@@ -62,7 +62,7 @@ def luzAltaFrecuencia(self):
         # electrones_libres.extend([e_libre, flecha])
 
     self.wait(0.8)
-    self.play(
-        *[actions["fadeOut"](m) for m in electrones_libres],
-        actions["fadeOut"](freq_label),
-    )
+    # self.play(
+    #     *[actions["fadeOut"](m) for m in electrones_libres],
+    # )
+    self.play(actions["fadeOut"](*self.mobjects))
