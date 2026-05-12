@@ -1,6 +1,6 @@
 from utils.figures import figures
 from utils.colors import colors
-from manim import DOWN, VGroup, Text, BOLD, UP, LEFT, RIGHT
+from manim import DOWN, VGroup, Text, BOLD, UP, LEFT, RIGHT, Polygon, WHITE
 
 
 def superficie():
@@ -175,30 +175,35 @@ def crearRegiones():
         side_length=2,
     )
     connectorPRegion = figures["line"](
-        start=LEFT * 3 + UP * 2, end=LEFT * 4 + UP * 2, 
+        start=LEFT * 3 + UP * 2,
+        end=LEFT * 4 + UP * 2,
     )
     connectorNRegion = figures["line"](
-        start=RIGHT * 3 + UP * 2, end=RIGHT * 4 + UP * 2, 
+        start=RIGHT * 3 + UP * 2,
+        end=RIGHT * 4 + UP * 2,
     )
     connectorLeft = figures["line"](
-        start=LEFT * 4 + UP * 2, end=LEFT * 4 + DOWN * 2, 
+        start=LEFT * 4 + UP * 2,
+        end=LEFT * 4 + DOWN * 2,
     )
     connectorRight = figures["line"](
-        start=RIGHT * 4 + UP * 2, end=RIGHT * 4 + DOWN * 2, 
+        start=RIGHT * 4 + UP * 2,
+        end=RIGHT * 4 + DOWN * 2,
     )
     connectorNegative = figures["line"](
-        start=LEFT * 4 + DOWN * 2, end=LEFT * 0.5 + DOWN * 2, 
+        start=LEFT * 4 + DOWN * 2,
+        end=LEFT * 0.5 + DOWN * 2,
     )
     connectorPositive = figures["line"](
-        start=RIGHT * 4 + DOWN * 2, end=RIGHT * 0.5 + DOWN * 2, 
+        start=RIGHT * 4 + DOWN * 2,
+        end=RIGHT * 0.5 + DOWN * 2,
     )
     padNegative = figures["line"](
         start=LEFT * 0.5 + DOWN * 2.5,
         end=LEFT * 0.5 + DOWN * 1.5,
     )
     padPositive = figures["line"](
-        start=RIGHT * 0.5 + DOWN * 3,
-        end=RIGHT * 0.5 + DOWN * 1
+        start=RIGHT * 0.5 + DOWN * 3, end=RIGHT * 0.5 + DOWN * 1
     )
     centralRegion.move_to(UP * 2)
     nRegion.move_to(UP * 2 + RIGHT * 2)
@@ -240,3 +245,20 @@ def helperParaRegions(position, radius):
     )
     helper.move_to(position)
     return VGroup(helper)
+
+
+def crearHazDeLuz(x_top, y_top, ancho_top, ancho_bot, altura, color=WHITE):
+    mitad_top = ancho_top / 2
+    mitad_bot = ancho_bot / 2
+    y_bot = y_top - altura
+
+    return Polygon(
+        [x_top - mitad_top, y_top, 0],  # esquina superior izquierda
+        [x_top + mitad_top, y_top, 0],  # esquina superior derecha
+        [x_top + mitad_bot, y_bot, 0],  # esquina inferior derecha
+        [x_top - mitad_bot, y_bot, 0],  # esquina inferior izquierda
+        fill_color=color,
+        fill_opacity=0.4,
+        stroke_color=color,
+        stroke_width=1,
+    )
